@@ -30,9 +30,9 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.update = !!this.route.params.subscribe(
+    this.route.params.subscribe(
       params => {
-        this.update = params['update'];
+        this.update = !!params['update'];
 
         if (this.update) {
           const series = params['series'];
