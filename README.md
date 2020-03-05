@@ -25,3 +25,5 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+You can deploy it with docker-compose up -d --build. It needs fleet-backend running, if you running it in another machine or did not use fleet-backend deploy change server address on app.module.ts
