@@ -16,7 +16,7 @@ import { TitleComponent } from './components/title/title.component';
 import { FormComponent } from './components/form/form.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 
-const ADDRESS = 'localhost';
+const ADDRESS = 'localhost:8080';
 const VEHICLE_URL = `http://${ADDRESS}/api/vehicle`;
 
 @NgModule({
