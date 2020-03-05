@@ -1,0 +1,67 @@
+<app-title [title]="title"></app-title>
+
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="submit(f.value)">
+        <div class="form-group">
+            <label for="series" class="sr-only">Series</label>
+            <input type="text" id="series" class="form-control" placeholder="series" name="series" required
+                [(ngModel)]="form['series']" #series="ngModel" maxlength="50" minlength="3" [disabled]="update">
+            <div *ngIf="series.invalid && (series.dirty || series.touched)" class="alert alert-danger">
+                <div *ngIf="series.errors.required">
+                    Series is required.
+                </div>
+                <div *ngIf="series.errors.minlength">
+                    Series must be at least 3 characters long.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="number" class="sr-only">name</label>
+            <input type="number" id="number" class="form-control" placeholder="number" name="number"
+                [(ngModel)]="form['number']" #number="ngModel" required [disabled]="update">
+            <div *ngIf="number.invalid && (number.dirty || number.touched)" class="alert alert-danger">
+                <div *ngIf="number.errors.required">
+                    number is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="color" class="sr-only">color</label>
+            <input type="text" id="color" class="form-control" placeholder="color" name="color" required
+                [(ngModel)]="form['color']" #color="ngModel" maxlength="50" minlength="3">
+            <div *ngIf="color.invalid && (color.dirty || color.touched)" class="alert alert-danger">
+                <div *ngIf="color.errors.required">
+                    color is required.
+                </div>
+                <div *ngIf="color.errors.minlength">
+                    color must be at least 3 characters long.
+                </div>
+                <div *ngIf="color.errors.pattern">
+                    color must be letters only.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="type" class="sr-only">color</label>
+            <select id="type" name="type" [(ngModel)]="form['type']" #type="ngModel" required [disabled]="update">
+                <option value="BUS">BUS</option>
+                <option value="CAR">CAR</option>
+                <option value="TRUCK">TRUCK</option>
+            </select>
+            <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger">
+                <div *ngIf="type.errors.required">
+                    type is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="mx-auto p-2 btn-group" role="group">
+                <button *ngIf="!update" type="submit" class="btn btn-success" [disabled]="!f.valid">Create</button>
+            </div>
+            <div class="mx-auto p-2 btn-group" role="group">
+                <button *ngIf="update" type="submit" class="btn btn-success" [disabled]="!f.valid">Update</button>
+            </div>
+        </div>
+    </form>
+
+</div>

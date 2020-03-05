@@ -1,0 +1,38 @@
+<app-title [title]="title"></app-title>
+
+<div class="content">
+    <div class="mx-auto p-2 btn-group" role="group">
+        <button type="button" class="btn btn-success create" (click)="create()">New</button>
+    </div>
+    <div class="m-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Series</th>
+                    <th scope="col">Number</th>
+                    <th scope="col">Passengers</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Type</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vehicle of fleet" id="{{vehicle.series}}#{{vehicle.number}}">
+                    <td>{{vehicle.series}}</td>
+                    <td>{{vehicle.number}}</td>
+                    <td>{{vehicle.passengers}}</td>
+                    <td>{{vehicle.color}}</td>
+                    <td>{{vehicle.type}}</td>
+                    <td>
+                        <button class="btn btn-success edit" (click)="edit(vehicle.series, vehicle.number)">
+                            <fa-icon [icon]="faEdit"></fa-icon>
+                        </button>
+                        <button class="btn btn-danger delete" (click)="openDialog(vehicle.series, vehicle.number)">
+                            <fa-icon [icon]="faEraser"></fa-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
